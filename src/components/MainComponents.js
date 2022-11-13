@@ -18,6 +18,6 @@ export const ErrorMessage = styled.div`
    margin: 10px 0;
    background-color: #FFCACA;
    color: #000;
-   border: 2px solid #ff8000;
+   border: 2px solid #FF8000;
    padding: 10px;
 `

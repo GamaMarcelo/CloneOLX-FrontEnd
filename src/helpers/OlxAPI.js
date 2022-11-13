@@ -24,7 +24,9 @@ const apiFetchPost = async (endpoint, body) => {
       return;
     }
     return json;
+
 }
+
 
 const apiFetchGet = async (endpoint, body = []) => {
     if (!body.token) {
@@ -61,7 +63,16 @@ const OlxAPI = {
     getState: async () => {
         const json = await apiFetchGet('/states');
         return json.states;
-    }
+    },
+
+    getCategorias: async () => {
+        const json = await apiFetchGet(
+            '/categories'
+            );
+        return json.categories;
+
+    },
+
 }
  
 
