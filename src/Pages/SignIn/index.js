@@ -39,7 +39,7 @@ const Page = () => {
     return (
         <PageContainer>
             <PageTitle>
-                Login 
+                Login
             </PageTitle>
             <PageArea>
                 {error &&
