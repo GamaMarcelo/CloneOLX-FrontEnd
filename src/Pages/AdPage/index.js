@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Slide } from 'react-slideshow-image';
-import "react-slideshow-image/dist/styled.css";
+import "react-slideshow-image/dist/styles.css";
 import { PageArea, Fake, OthersArea, BreadChumb } from './styled';
 import { PageContainer } from '../../components/MainComponents';
 import AdItem from '../../components/partials/AdItem'
@@ -42,7 +42,7 @@ const Page = () => {
         let cDay = cDate.getDate();
         let cMonth = cDate.getMonth();
         let cYear = cDate.getFullYear();
-        return `${cDAy} de ${months[cMonth]} de ${cYear}`;
+        return `${cDay} de ${months[cMonth]} de ${cYear}`;
     }
     
  
@@ -72,7 +72,7 @@ const Page = () => {
                     {loading && <Fake height={300} />}
                     {adInfo.images &&
                        <Slide>
-                           {adInfo.images.map((imag, k) => 
+                           {adInfo.images.map((img, k) => 
                                <div key={k} className="each-slide">
                                    <img src={img} alt="" />
                                </div>

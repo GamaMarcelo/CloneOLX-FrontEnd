@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+import RouterHandler from './components/RouterHandler';
 
 import Home from './Pages/Home';
 import About from './Pages/About';
@@ -7,28 +8,35 @@ import NotFound from './Pages/NotFound';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import AdPage from './Pages/AdPage';
+import AddAd from './Pages/AddAd';
 
 export default () => {
     return (
         <Switch>
-            <Route exact path="/">
+            <RouterHandler exact path="/">
                 <Home />
-            </Route>    
-            <Route exact path="/about">
+            </RouterHandler>    
+            <RouterHandler exact path="/about">
                  <About />
-            </Route>
-            <Route exact path="/signin">
+            </RouterHandler>
+            <RouterHandler exact path="/signin">
                  <SignIn />
-            </Route> 
-            <Route exact path="/signup">
+            </RouterHandler> 
+            <RouterHandler exact path="/signup">
                  <SignUp />
-            </Route> 
-            <Route exact path="/ad/:id">
+            </RouterHandler> 
+            <RouterHandler exact path="/ad/:id">
                  <AdPage />
-            </Route> 
-            <Route path="*">
+            </RouterHandler> 
+            <RouterHandler private exact path="/post-an-ad">
+                 <AddAd />
+            </RouterHandler> 
+            <RouterHandler private exact path="/my-account">
+                 <About />
+            </RouterHandler> 
+            <RouterHandler path="*">
                  <NotFound />
-            </Route>
+            </RouterHandler>
         </Switch>
     )
 }
