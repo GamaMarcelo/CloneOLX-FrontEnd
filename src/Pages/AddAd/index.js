@@ -180,7 +180,6 @@ const Page = () => {
 							<input
 								type="file"
 								disabled={disabled}
-								value={description}
 								hRef={fileField}
 								multiple
 							/>

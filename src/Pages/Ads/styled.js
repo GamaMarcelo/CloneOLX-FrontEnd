@@ -1,56 +1,90 @@
 import styled from 'styled-components'
 
 export const PageArea = styled.div`
-	form {
-		background-color: #FFF;
-		border-radius: 3px;
-		padding: 10px;
-		box-shadow: 0px 0px 3px #999;
-		margin-bottom: 40px;
-		.area {
-			display: flex;
-			align-items: center;
-			padding: 10px;
-			max-width: 500px;
-			.area--title {
-				width: 200px;
-				text-align: right;
-				padding-right: 20px;
-				font-weight: bold;
+	display: flex;
+	margin-top: 20px;
+
+	.leftSide {
+		width: 250px;
+		margin-right: 10px;
+
+		.filterName {
+			font-size: 15px;
+			margin: 10px;
+
+		}
+
+		input, select {
+			width: 100%;
+			height: 40px;
+			border: 1px solid #9bb83c;
+			border-radius: 5px;
+			color: #000;
+			cursor: pointer;
+
+			img {
+				width: 25px;
+				height: 25px;
+				margin-right: 5px;
+			}
+
+			span {
 				font-size: 14px;
 			}
-			.area--input {
-				flex: 1;
-				input {
-					width: 100%;
-					font-size: 14px;
-					padding: 5px;
-					border: 1px solid #DDD;
-					border-radius: 3px;
-					outline: 0;
-					transition: all ease 0.4s;
-					&:focus {
-						border: 1px solid #333;
-						color: #333;
-					}
+		}
+
+		.categoryItem:hover,
+		.categoryItem.active {
+			background-color: #9bb83c;
+			color: #fff;
+		}
+	}
+
+	.rightSide {
+		flex: 1;
+		h2 {
+			margin-top: 0;
+			font-size: 18px;
+		}
+
+		.listWarning {
+			padding: 30px;
+			text-align: center;
+		}
+
+		.pagination {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 20px;
+			margin: 10px 0;
+
+			.pagItem {
+				width: 30px;
+				height: 30px;
+				display: flex;
+				border: 1px solid #000;
+				align-items: center;
+				justify-content: center;
+				font-size: 14px;
+				margin-right: 5px;
+
+				&:hover {
+					border: 1px solid #999;
 				}
-				.check {
-					float: left;
-					width: auto;
+
+				&.active {
+					background-color: #ccc;
 				}
-				button {
-					background-color: #0089ff;
-					border: 0;
-					outline: 0;
-					padding: 5px 10px;
-					border-radius: 4px;
-					color: #FFF;
-					font-size: 15px;
-					cursor: pointer;
-					&:hover {
-						background-color: #006FCE;
-					}
-				}
+			}
+		}
+		
+		.list {
+			display: flex;
+			flex-wrap: wrap;
+
+			.adItem {
+				width: 33%;
 			}
 		}
 	}

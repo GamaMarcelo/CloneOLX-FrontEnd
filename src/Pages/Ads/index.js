@@ -110,7 +110,76 @@ function Page() {
 
 	return (
 		<PageContainer>
-			
+			<PageArea>
+				<div className='leftSide'>
+                    <form method='GET'>
+						<input 
+						    type='text'
+							nome='q'
+							placeholder='O que você procura'
+							value={q}
+							onChange={(e) => setQ(e.targer.value)}
+						/>
+					
+					<div className='filterName'>Estado</div>
+					<select 
+					    nome='state'
+						value={state}
+						onChange={(e) => setState(e.target.value)}
+					>
+						<option></option>
+						{stateList.map((state, index) => 
+						   <option
+						       key={index}
+							   value={state.id}
+							>
+                               {state.name}
+							</option>   
+						)}
+					</select>
+					<div className='filterName'>Categoria:</div>
+					<ul>
+						{categories.map((category, index) =>
+						   <li
+							  key={index}
+							  className={cat === category.slug ? 'categoryItem active' : 'category'}
+							  onClick={() => setCat(caregory.slug)}
+							>
+                            <img src={category.img} alt='' />
+                            <span>category.name</span>
+						   </li>
+						)}
+						</ul>
+				</form>	
+				</div>
+				<div className='rightSide'>
+					<h2>Resultados</h2>
+					{loading && adList.lenght === 0 &&
+					     <div className='ListWarning'>Carregand0...</div>
+					}
+					{!loading && adList.lenght === 0 &&
+					    <div className='ListWarning'>Nenhum Resultado Encontrado</div>
+					}
+					<div className='list' style={{opacity: resultOpacity}}>
+						{adList.map((ad, index) =>
+						<AdItem key={index} dataa={ad} /> 
+						)}
+					</div>
+					<div className='pagination'>
+						{pagination.map((pg, index) =>
+						<div 
+						   key={index}
+						   onClick={() => setCurrentPage(pg)}
+						   className={pg === currentPage ? 'pagItem active' : 'pagItem'}
+						   >
+							 {pg}
+						</div>	
+							
+					     )}
+				    </div>
+					
+				</div>
+			</PageArea>
 		</PageContainer>
 	)
 }
