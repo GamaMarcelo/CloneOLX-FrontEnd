@@ -143,7 +143,7 @@ function Page() {
 						   <li
 							  key={index}
 							  className={cat === category.slug ? 'categoryItem active' : 'category'}
-							  onClick={() => setCat(caregory.slug)}
+							  onClick={() => setCat(category.slug)}
 							>
                             <img src={category.img} alt='' />
                             <span>category.name</span>

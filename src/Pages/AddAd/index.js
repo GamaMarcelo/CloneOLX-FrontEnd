@@ -20,7 +20,7 @@ const Page = () => {
 	const [category, setCategory] = useState('');
 	const [categories, setCategories] = useState([]);
 	const [price, setPrice] = useState('');
-	const [priceNegotiabled, setpriceNegotiabled] = useState('');
+	const [priceNegotiable, setpriceNegotiable] = useState('');
 	const [description, setDescription] = useState('');
 	const [disabled, setDisabled] = useState(false);
 	const [error, setError] = useState('');
@@ -139,7 +139,7 @@ const Page = () => {
 							<MaskedInput
 							    mask={priceMask}
 								placeholder="R$ "
-								disabled={disabled || priceNegotiabled}
+								disabled={disabled || priceNegotiable}
 								value={price}
 								onChange={e => setPrice(e.target.value)}
 								required
@@ -155,8 +155,8 @@ const Page = () => {
 							    
 								type="checkbox"
 								disabled={disabled}
-								onChange={e => setpriceNegotiabled(!priceNegotiabled)}
-								checked = {priceNegotiabled}
+								onChange={e => setpriceNegotiable(!priceNegotiable)}
+								checked = {priceNegotiable}
 							/>
 						</div>
 					</label>

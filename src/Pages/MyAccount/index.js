@@ -24,7 +24,7 @@ const Page = () => {
 		speed: 500,
 		slidesToShow: 4,
 		slidesToScroll: 2,
-		resposive: [
+		responsive: [
 			{
 				breackpoint: 600,
 				settings: {
@@ -100,7 +100,7 @@ const Page = () => {
 
 	useEffect(() => {
 		if(user) {
-			state.map(function (item) {
+			stateList.map(function (item) {
 				if(item.name === user.state) {
 					setStateUser(item._id);
 				}
@@ -141,7 +141,7 @@ const Page = () => {
 		   formData.append("status", adsStatusModal);
 		   formData.append("title", adTitleModal);
 		   formData.append("price", priceModal);
-		   formData.append("priceneg", priceNegotiabled);
+		   formData.append("priceneg", priceNegotiableModal);
 		   formData.append("desc", descriptionModal);
 		   formData.append("cat", categoryModal)
 
@@ -155,7 +155,7 @@ const Page = () => {
 
 		   }
 
-		   const response = await api.updateAd(formData, getAdModal);
+		   const response = await api.updateAd(formData, getIdAdModal);
         if(!response.error) {
 			window.location.href = '/my-account';
 		} else {
@@ -227,7 +227,7 @@ const Page = () => {
 						</div>
 					</div>
 					<div className='pageTopRight'>
-                        <form onSubmit={handleSubmit} className='formRight'>
+                        <form onSubmit={handleSumit} className='formRight'>
 						    <label className="area">
 					 	        <div className="area--title">
 							         Nome Completo
@@ -307,9 +307,9 @@ const Page = () => {
 					Meus Anuncios
 				</PageTitle>
 				<div className='pageBottom'>
-					{adList &&
+					{adsList &&
 					   <Slide {...settings}>
-						   {adList.map((ad, index) =>
+						   {adsList.map((ad, index) =>
 						      <div key={index} onClick={() => openModal(ad)}>
 								  <AdItem key={index} data={ad} />
 							  </div>
@@ -326,7 +326,7 @@ const Page = () => {
 				    setVisibleModal={setVisibleModal}
 				>
 					<ModalAll>
-						<fomr onSubmit={handleSumitModal}>
+						<form onSubmit={handleSumitModal}>
 							<div className='modalContent'>
 							<label className="area">
 						<div className="area--title">
@@ -337,7 +337,7 @@ const Page = () => {
 								type="text"
 								disabled={disabled}
 								value={adTitleModal}
-								onChange={e => setTitle(e.target.value)}
+								onChange={e => setAdTitleModal(e.target.value)}
 								required
 							/>
 						</div>
@@ -373,7 +373,7 @@ const Page = () => {
 							<MaskedInput
 							    mask={priceMask}
 								placeholder="R$ "
-								disabled={disabled || priceNegotiabled}
+								disabled={disabled || priceNegotiableModal}
 								value={priceModal}
 								onChange={e => setPriceModal(e.target.value)}
 								required
@@ -389,8 +389,8 @@ const Page = () => {
 							    
 								type="checkbox"
 								disabled={disabled}
-								onChange={e => setpriceNegotiable(!priceNegotiabled)}
-								checked = {priceNegotiabled}
+								onChange={e => setPriceNegotiableModal(!priceNegotiableModal)}
+								checked = {priceNegotiableModal}
 							/>
 						</div>
 					</label>
@@ -427,7 +427,7 @@ const Page = () => {
 						</div>
 					</label>
 							</div>
-						</fomr>
+						</form>
 					</ModalAll>
 				</Modal>
 			}
